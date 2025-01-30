@@ -135,19 +135,35 @@ public class AddEditCharacterActivity extends AppCompatActivity {
         String selectedCharacterClass = characterClass.getSelectedItem().toString();
         String race = raceSpinner.getSelectedItem().toString();
         String armorType = armorSpinner.getSelectedItem().toString();
-        int level = Integer.parseInt(levelEdit.getText().toString());
-        int strength = Integer.parseInt(strengthEdit.getText().toString());
-        int dexterity = Integer.parseInt(dexterityEdit.getText().toString());
-        int constitution = Integer.parseInt(constitutionEdit.getText().toString());
-        int intelligence = Integer.parseInt(intelligenceEdit.getText().toString());
-        int wisdom = Integer.parseInt(wisdomEdit.getText().toString());
-        int charisma = Integer.parseInt(charismaEdit.getText().toString());
+        String lvl = levelEdit.getText().toString();
+        String str = strengthEdit.getText().toString();
+        String dex = dexterityEdit.getText().toString();
+        String con = constitutionEdit.getText().toString();
+        String inl = intelligenceEdit.getText().toString();
+        String wis = wisdomEdit.getText().toString();
+        String cha = charismaEdit.getText().toString();
 
-        if (name.isEmpty() || selectedCharacterClass.isEmpty() || race.isEmpty() || armorType.isEmpty() || level == 0 || strength == 0 || dexterity == 0 || constitution == 0 || intelligence == 0 || wisdom == 0 || charisma == 0) {
+
+        if (name.isEmpty() || lvl.isEmpty() || str.isEmpty() || dex.isEmpty() || con.isEmpty() || inl.isEmpty() || wis.isEmpty() || cha.isEmpty()) {
             Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show();
             return;
         }
+        int level = Integer.parseInt(lvl);
+        int strength = Integer.parseInt(str);
+        int dexterity = Integer.parseInt(dex);
+        int constitution = Integer.parseInt(con);
+        int intelligence = Integer.parseInt(inl);
+        int wisdom = Integer.parseInt(wis);
+        int charisma = Integer.parseInt(cha);
 
+        if (level < 1 || level > 12){
+            Toast.makeText(this, "Invalid data received: Level must be from 1 to 12", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if ( strength < 8 || strength > 20 || dexterity < 8 || dexterity > 20 || constitution < 8 || constitution > 20 || intelligence < 8 || intelligence > 20 || wisdom < 8 || wisdom > 20 || charisma < 8 || charisma > 20){
+            Toast.makeText(this, "Invalid data received: Stats must be from 8 to 20", Toast.LENGTH_SHORT).show();
+            return;
+        }
         try {
             new Thread(() -> {
                 Character character = new Character();

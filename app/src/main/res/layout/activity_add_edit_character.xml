@@ -87,7 +87,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/character_description_edit" />
 
-    <!-- "Str" | "Dex" | "Con" | "Int" | "Wis" | "Cha" -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/character_stats"
         android:layout_width="match_parent"
@@ -96,7 +95,6 @@
         app:layout_constraintTop_toBottomOf="@id/armor_spinner"
         tools:ignore="MissingConstraints">
 
-        <!-- Labels: Str, Dex, Con, Int, Wisd, Cha -->
         <TextView
             android:id="@+id/str_label"
             android:layout_width="0dp"

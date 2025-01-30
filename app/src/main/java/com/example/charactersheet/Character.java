@@ -10,9 +10,9 @@ public class Character {
 
     public String name;
     public String description;
-    public String characterClass;  // Barbarian, Bard, etc.
-    public String race;            // Human, Elf, etc.
-    public String armorType;       // No armor, Light armor, Heavy armor
+    public String characterClass;
+    public String race;
+    public String armorType;
     public int level;
     public int maxHp;
     public int armorClass;
@@ -50,21 +50,31 @@ public class Character {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getCharacterClass() {
         return characterClass;
     }
+
+    public int getHP() { return maxHp; }
+
+    public int getAC() { return armorClass; }
+
+    public int getWS() { return walkingSpeed; }
+
+    public int getStr() { return strength; }
+
+    public int getDex() { return dexterity; }
+
+    public int getCon() { return constitution; }
+
+    public int getInt() { return intelligence; }
+
+    public int getWis() { return wisdom; }
+
+    public int getCha() { return charisma; }
 
     public void updateMaxHp() {
         int hpPerLevel;
